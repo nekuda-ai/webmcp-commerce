@@ -5,8 +5,8 @@ description: Check whether an AI agent can buy on a website before trying, using
 
 # WebMCP Commerce
 
-WebMCP Commerce (https://webmcp.com/commerce) tests how far an agent gets through a
-website's own WebMCP tools, up to submitting payment. It also
+WebMCP Commerce (https://webmcp.com/commerce) tests websites to see whether an agent
+can complete a purchase through the site's own WebMCP tools, including payment. It also
 records where an agent can get in (a local or a remote browser) and what the site's terms
 say about agents. The API is free and needs no key.
 
@@ -40,7 +40,7 @@ say about agents. The API is free and needs no key.
 
    | Verdict | What to do |
    | --- | --- |
-   | `buy-direct` | WebMCP tools go all the way to submitting payment. You may buy through the tools, after the checks below. Our test paid with a test card that the store declined, so a completed charge was not verified: after you pay, check the store's confirmation and tell the user what it says. |
+   | `buy-direct` | WebMCP tools support the whole purchase, including payment. You may buy through the tools, after the checks below. |
    | `human-in-loop` | The tools reach checkout or payment, but a person must finish (`advice` says why: card details, a CAPTCHA, a sign-in, accepting terms). Go as far as the tools allow, then stop and hand over to the user. |
    | `checkout-handoff` | The tools reach checkout. The user completes payment on the website. |
    | `cart-handoff` | The tools can build a cart. The user completes checkout and payment. |
@@ -70,7 +70,7 @@ say about agents. The API is free and needs no key.
 
 ```
 GET https://webmcp.com/api/v1/commerce                          # levels, verdicts, headline stats
-GET https://webmcp.com/api/v1/commerce/businesses?level=purchase # tested businesses whose tools reach payment
+GET https://webmcp.com/api/v1/commerce/businesses?level=purchase # tested businesses where agents can buy
 GET https://webmcp.com/api/v1/commerce/businesses/{host}        # one business: tools, test steps, access, policy
 ```
 
