@@ -89,5 +89,6 @@ To find a store for the user, list `?level=purchase`, then run `/check` on the o
 }
 ```
 
-So: tell the user about the terms limit, build the cart and fill checkout through the tools if
-they agree, then hand over at the payment step for the card details.
+So: tell the user the store invites agents but its terms ban automated access, and let them
+decide. If they still want you to go ahead, build the cart and fill checkout through the tools,
+then hand over at the payment step for the card details.
